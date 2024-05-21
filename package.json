@@ -1,0 +1,33 @@
+{
+  "type": "module",
+  "name": "semantic-release-action",
+  "version": "1.0.0",
+  "author": "Robert Deak <robert.deak@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rdeak/semantic-release-action"
+  },
+  "bugs": {
+    "url": "https://github.com/rdeak/semantic-release-action/issues"
+  },
+  "license": "MIT",
+  "description": "Configuration for semantic-release with conventional commit messages",
+  "keywords": [
+    "github-action",
+    "semantic-release"
+  ],
+  "main": "src/index.mjs",
+  "scripts": {
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write  . --fix"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "@actions/exec": "^1.1.1",
+    "@rdeak/semantic-release-config": "^1.2.1",
+    "semantic-release": "^23.1.1"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"
+  }
+}

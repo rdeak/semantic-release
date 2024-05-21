@@ -1,0 +1,16 @@
+name: Semantic release
+description: Creates release with semantic-release
+author: rdeak
+branding:
+  icon: package
+  color: orange
+inputs:
+  GITHUB_TOKEN:
+    description: "GitHub token"
+    required: true
+  NPM_TOKEN:
+    description: "NPM token"
+    required: false
+runs:
+  using: "node20"
+  main: "src/index.mjs"
