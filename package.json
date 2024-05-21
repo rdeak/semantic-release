@@ -16,7 +16,7 @@
     "github-action",
     "semantic-release"
   ],
-  "main": "src/index.mjs",
+  "main": "index.mjs",
   "scripts": {
     "prettier": "prettier --check .",
     "prettier:fix": "prettier --write  ."

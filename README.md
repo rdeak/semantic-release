@@ -7,23 +7,25 @@ This action creates release with change log, and if NPM_TOKEN is set it publishe
 ## Inputs
 
 | Name         | Required | Description                      |
-| ------------ | -------- | -------------------------------- |
+|--------------|----------|----------------------------------|
 | GITHUB_TOKEN | Yes      | It's needed to push version tag. |
 | NPM_TOKEN    |          | Valid NPM token                  |
 
 ## Outputs
 
-| Name            | Description                       |
-| --------------- | --------------------------------- |
-| RELEASE_VERSION | Latest released version eg. 1.0.1 |
-| RELEASE_TAG     | Latest version tag eg. v1.0.1     |
+| Name                  | Description                       |
+|-----------------------|-----------------------------------|
+| release-version       | Latest released version eg. 1.0.1 |
+| release-major-version | Latest major version eg. 1        |
+| release-tag           | Latest version tag eg. v1.0.1     |
 
 ## Environment variables
 
-| Name            | Description                       |
-| --------------- | --------------------------------- |
-| RELEASE_VERSION | Latest released version eg. 1.0.1 |
-| RELEASE_TAG     | Latest version tag eg. v1.0.1     |
+| Name                  | Description                       |
+|-----------------------|-----------------------------------|
+| RELEASE_VERSION       | Latest released version eg. 1.0.1 |
+| RELEASE_MAJOR_VERSION | Latest major version eg. 1        |
+| RELEASE_TAG           | Latest version tag eg. v1.0.1     |
 
 ## Example usage
 

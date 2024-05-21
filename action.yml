@@ -12,5 +12,5 @@ inputs:
     description: "NPM token"
     required: false
 runs:
-  using: "node20"
-  main: "src/index.mjs"
+  using: 'docker'
+  image: 'Dockerfile'
