@@ -17,11 +17,6 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      issues: write
-      pull-requests: write
-      id-token: write
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -32,8 +27,7 @@ jobs:
           node-version: 22
           cache: "pnpm"
       - run: pnpm install
-      - run: pnpm prettier
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release -e @rdeak/semantic-release-config/release-only
+        run: pnpm exec semantic-release -e @rdeak/semantic-release-config/release-only
