@@ -20,7 +20,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Create release
-      - name: semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         uses: ./
