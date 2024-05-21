@@ -12,8 +12,6 @@ async function run() {
 
     const result = await semanticRelease({
       extends: extendConfig,
-      dryRun: true,
-      ci: false,
     });
 
     if (!result) {
