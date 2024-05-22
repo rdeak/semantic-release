@@ -4,13 +4,6 @@ author: rdeak
 branding:
   icon: package
   color: orange
-inputs:
-  GITHUB_TOKEN:
-    description: "GitHub token"
-    required: true
-  NPM_TOKEN:
-    description: "NPM token"
-    required: false
 runs:
   using: "docker"
   image: "Dockerfile"
