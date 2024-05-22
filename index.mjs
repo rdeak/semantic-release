@@ -1,4 +1,5 @@
 import core from "@actions/core";
+import exec from '@actions/exec';
 import semanticRelease from "semantic-release";
 
 async function run() {
