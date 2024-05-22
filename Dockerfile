@@ -1,8 +1,7 @@
 FROM node:22-slim
 
-RUN printenv
-
-RUN env
+RUN echo $GITHUB_WORKSPACE
+RUN echo $WORKSPACE
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends ca-certificates git \
