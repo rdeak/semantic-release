@@ -1,5 +1,5 @@
 import core from "@actions/core";
-import exec from '@actions/exec';
+import childProcess from "node:child_process"
 import semanticRelease from "semantic-release";
 
 async function run() {
@@ -11,7 +11,13 @@ async function run() {
     process.env.GITHUB_TOKEN = githubToken;
     process.env.NPM_TOKEN = npmToken;
 
-    await exec.exec(`git config --global --add safe.directory ${process.env.GITHUB_WORKSPACE}`);
+    childProcess.spawnSync('git', [
+      'config',
+      '--global',
+      '--add',
+      'safe.directory',
+      process.env.GITHUB_WORKSPACE,
+    ]);
 
     const result = await semanticRelease({
       extends: extendConfig,
