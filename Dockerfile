@@ -4,15 +4,10 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends ca-certificates git \
     && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir /action
-WORKDIR /action
+WORKDIR /github/workspace
 
 RUN npm install -g pnpm
 
-COPY package.json pnpm-lock.yaml ./
-
 RUN pnpm install
 
-COPY index.mjs .
-
-ENTRYPOINT ["node", "/action/index.mjs"]
+ENTRYPOINT ["node", "/github/workspace/index.mjs"]
