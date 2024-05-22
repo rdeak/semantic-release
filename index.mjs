@@ -10,6 +10,8 @@ async function run() {
     process.env.GITHUB_TOKEN = githubToken;
     process.env.NPM_TOKEN = npmToken;
 
+    await exec.exec(`git config --global --add safe.directory ${process.env.GITHUB_WORKSPACE}`);
+
     const result = await semanticRelease({
       extends: extendConfig,
     },{
