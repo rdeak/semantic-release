@@ -5,7 +5,7 @@ async function run() {
   try {
     const npmToken = process.env.NPM_TOKEN;
     const extendConfig = `@rdeak/semantic-release-config${npmToken ? "" : "/release-only"}`;
-
+    console.log('x', extendConfig)
     const result = await semanticRelease({
       extends: extendConfig,
     });
