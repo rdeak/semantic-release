@@ -42,7 +42,7 @@ runs:
       shell: bash
     - name: Run semantic release
       run: |
-        git config --global --add safe.directory ${{env.GITHUB_WORKSPACE }}
+        git config --global --add safe.directory ${{ env.GITHUB_WORKSPACE }}
         node index.mjs
       shell: bash
       env:
