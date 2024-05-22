@@ -1,5 +1,4 @@
 import core from "@actions/core";
-import childProcess from "node:child_process"
 import semanticRelease from "semantic-release";
 
 async function run() {
@@ -10,14 +9,6 @@ async function run() {
 
     process.env.GITHUB_TOKEN = githubToken;
     process.env.NPM_TOKEN = npmToken;
-
-    childProcess.spawnSync('git', [
-      'config',
-      '--global',
-      '--add',
-      'safe.directory',
-      process.env.GITHUB_WORKSPACE,
-    ]);
 
     const result = await semanticRelease({
       extends: extendConfig,

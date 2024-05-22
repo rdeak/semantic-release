@@ -23,7 +23,6 @@
   },
   "dependencies": {
     "@actions/core": "^1.10.1",
-    "@actions/exec": "^1.1.1",
     "@rdeak/semantic-release-config": "^1.2.1",
     "semantic-release": "^23.1.1"
   },
