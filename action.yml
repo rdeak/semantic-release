@@ -41,7 +41,9 @@ runs:
       run: pnpm install
       shell: bash
     - name: Run semantic release
-      run: node index.mjs
+      run: |
+        git config --global --add ${{env.GITHUB_WORKSPACE }}
+        node index.mjs
       shell: bash
       env:
         GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
