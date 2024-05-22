@@ -8,8 +8,6 @@ async function run() {
 
     const result = await semanticRelease({
       extends: extendConfig,
-    },{
-      cwd: process.env.GITHUB_WORKSPACE,
     });
 
     if (!result) {
