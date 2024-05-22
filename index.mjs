@@ -3,12 +3,8 @@ import semanticRelease from "semantic-release";
 
 async function run() {
   try {
-    const githubToken = core.getInput("GITHUB_TOKEN");
-    const npmToken = core.getInput("NPM_TOKEN");
+    const npmToken = process.env.NPM_TOKEN;
     const extendConfig = `@rdeak/semantic-release-config${npmToken ? "" : "/release-only"}`;
-
-    process.env.GITHUB_TOKEN = githubToken;
-    process.env.NPM_TOKEN = npmToken;
 
     const result = await semanticRelease({
       extends: extendConfig,
