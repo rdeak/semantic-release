@@ -42,11 +42,11 @@ runs:
       shell: bash
     - name: Print GITHUB_WORKSPACE
       run: |
-        echo ${{ env.GITHUB_WORKSPACE }}
+        echo ${{ github.workspace }}
       shell: bash
     - name: Run semantic release
       run: |
-        git config --global --add safe.directory ${{ env.GITHUB_WORKSPACE }}
+        git config --global --add safe.directory ${{ github.workspace }}
         node index.mjs
       shell: bash
       env:
