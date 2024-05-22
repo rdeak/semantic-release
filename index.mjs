@@ -1,5 +1,8 @@
 import core from "@actions/core";
 import semanticRelease from "semantic-release";
+import debug from 'debug';
+
+debug.enable('semantic-release:*')
 
 async function run() {
   try {
