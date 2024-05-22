@@ -1,6 +1,6 @@
 import core from "@actions/core";
 import semanticRelease from "semantic-release";
-console.log(JSON.stringify(process.env, null, 2))
+
 async function run() {
   try {
     const githubToken = core.getInput("GITHUB_TOKEN");
@@ -12,6 +12,9 @@ async function run() {
 
     const result = await semanticRelease({
       extends: extendConfig,
+    }, {
+      cwd: process.env.GITHUB_WORKSPACE,
+      env: process.env
     });
 
     if (!result) {
