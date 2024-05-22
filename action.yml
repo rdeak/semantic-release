@@ -40,6 +40,10 @@ runs:
     - name: Install dependencies
       run: pnpm install
       shell: bash
+    - name: Print GITHUB_WORKSPACE
+      run: |
+        echo ${{ env.GITHUB_WORKSPACE }}
+      shell: bash
     - name: Run semantic release
       run: |
         git config --global --add safe.directory ${{ env.GITHUB_WORKSPACE }}
