@@ -11,7 +11,7 @@ async function run() {
     process.env.NPM_TOKEN = npmToken;
 
     const result = await semanticRelease({
-      extends: extendConfig,
+      //extends: extendConfig,
     },{
       cwd: process.env.GITHUB_WORKSPACE,
     });
