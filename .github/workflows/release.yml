@@ -18,6 +18,12 @@ jobs:
         id: release-version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Tag major release
+        if: ${{ steps.release-version.outputs.new_release_created }}
+        shell: bash
+        run: |
+          git tag -a -m "v${{ steps.release-version.outputs.release_major_version }}" v${{ steps.release-version.outputs.release_major_version }}
+          git push --follow-tags
       - name: Release summary
         shell: bash
         run: |
