@@ -5,15 +5,15 @@ branding:
   icon: package
   color: blue
 outputs:
-  release-version:
+  release_version:
     description: "The new releases' semantic version, i.e. `1.8.3`."
-    value: steps.release.outputs.release-version
-  release-major-version:
+    value: ${{ steps.release.outputs.release-version }}
+  release_major_version:
     description: "The new releases' major version number, i.e. `1`."
-    value: steps.release.outputs.release-major-version
-  release-tag:
+    value: ${{ steps.release.outputs.release-major-version }}
+  release_tag:
     description: 'The version with v prefix.'
-    value: steps.release.outputs.release-tag
+    value: ${{ steps.release.outputs.release-tag }}
 runs:
   using: "composite"
   steps:
