@@ -13,19 +13,21 @@ This action creates release with change log, and if NPM_TOKEN is set it publishe
 
 ## Outputs
 
-| Name                  | Description                       |
-|-----------------------|-----------------------------------|
-| release_version       | Latest released version eg. 1.0.1 |
-| release_major_version | Latest major version eg. 1        |
-| release_tag           | Latest version tag eg. v1.0.1     |
+| Name                  | Description                              |
+|-----------------------|------------------------------------------|
+| new_release_created   | Flag if new release created (true/false) |
+| release_version       | Latest released version eg. 1.0.1        |
+| release_major_version | Latest major version eg. 1               |
+| release_tag           | Latest version tag eg. v1.0.1            |
 
 ## Environment variables
 
-| Name                  | Description                       |
-|-----------------------|-----------------------------------|
-| RELEASE_VERSION       | Latest released version eg. 1.0.1 |
-| RELEASE_MAJOR_VERSION | Latest major version eg. 1        |
-| RELEASE_TAG           | Latest version tag eg. v1.0.1     |
+| Name                  | Description                              |
+|-----------------------|------------------------------------------|
+| NEW_RELEASE_CREATED   | Flag if new release created (true/false) |
+| RELEASE_VERSION       | Latest released version eg. 1.0.1        |
+| RELEASE_MAJOR_VERSION | Latest major version eg. 1               |
+| RELEASE_TAG           | Latest version tag eg. v1.0.1            |
 
 ## Example usage
 

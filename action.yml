@@ -5,12 +5,18 @@ branding:
   icon: package
   color: blue
 outputs:
+  new_release_created:
+    description: "Flag if new release created (true/false)"
+    value: ${{ steps.release-step.outputs.new_release_created }}
   release_version:
-    description: "The new releases' semantic version, i.e. `1.8.3`."
+    description: "Latest released version eg. 1.0.1"
+    value: ${{ steps.release-step.outputs.release_version }}
   release_major_version:
-    description: "The new releases' major version number, i.e. `1`."
+    description: "Latest major version eg. 1"
+    value: ${{ steps.release-step.outputs.release_major_version }}
   release_tag:
-    description: 'The version with v prefix.'
+    description: "Latest version tag eg. v1.0.1"
+    value: ${{ steps.release-step.outputs.release_tag }}
 runs:
   using: "composite"
   steps:
@@ -23,9 +29,7 @@ runs:
       shell: bash
     - run: node index.mjs
       shell: bash
-      id: release
+      id: release-step
       env:
         GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
         NPM_TOKEN: ${{ env.NPM_TOKEN }}
-
-
