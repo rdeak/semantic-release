@@ -1,4 +1,4 @@
-name: Publish
+name: Release
 
 on:
   push:
@@ -9,13 +9,13 @@ permissions:
   contents: write
 
 jobs:
-  publish:
+  Release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Create release
         uses: ./
-        id: release
+        id: release_version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Release summary
@@ -24,9 +24,9 @@ jobs:
           echo "### Outputs" >> $GITHUB_STEP_SUMMARY
           echo "| Name | Value |" >> $GITHUB_STEP_SUMMARY
           echo "| ----------- | ----- |" >> $GITHUB_STEP_SUMMARY
-          echo "| release_version | ${{ steps.release.outputs.release_version }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| release_major_version | ${{ steps.release.outputs.release_major_version }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| release_tag | ${{ steps.release.outputs.release_tag }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| release_version | ${{ steps.release_version.outputs.release_version }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| release_major_version | ${{ steps.release_version.outputs.release_major_version }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| release_tag | ${{ steps.release_version.outputs.release_tag }} |" >> $GITHUB_STEP_SUMMARY
           echo  >> $GITHUB_STEP_SUMMARY
           echo "### Environment variables" >> $GITHUB_STEP_SUMMARY
           echo "| Name | Value |" >> $GITHUB_STEP_SUMMARY
