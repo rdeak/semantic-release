@@ -3,7 +3,6 @@ import semanticRelease from "semantic-release";
 
 async function run() {
   try {
-    console.log(JSON.stringify(process.env, null, 2));
     const npmToken = process.env.NPM_TOKEN;
     const extendConfig = `@rdeak/semantic-release-config${npmToken ? "" : "/release-only"}`;
 
@@ -23,9 +22,9 @@ async function run() {
     core.exportVariable("RELEASE_MAJOR_VERSION", majorVersion);
     core.exportVariable("RELEASE_TAG", gitTag);
 
-    core.setOutput("release-version", version);
-    core.setOutput("release-major-version", majorVersion);
-    core.setOutput("release-tag", gitTag);
+    core.setOutput("release_version", version);
+    core.setOutput("release_major_version", majorVersion);
+    core.setOutput("release_tag", gitTag);
   } catch (error) {
     core.setFailed(error.message);
   }

@@ -15,9 +15,9 @@ This action creates release with change log, and if NPM_TOKEN is set it publishe
 
 | Name                  | Description                       |
 |-----------------------|-----------------------------------|
-| release-version       | Latest released version eg. 1.0.1 |
-| release-major-version | Latest major version eg. 1        |
-| release-tag           | Latest version tag eg. v1.0.1     |
+| release_version       | Latest released version eg. 1.0.1 |
+| release_major_version | Latest major version eg. 1        |
+| release_tag           | Latest version tag eg. v1.0.1     |
 
 ## Environment variables
 
