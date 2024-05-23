@@ -24,9 +24,9 @@ jobs:
           echo "### Outputs" >> $GITHUB_STEP_SUMMARY
           echo "| Name | Value |" >> $GITHUB_STEP_SUMMARY
           echo "| ----------- | ----- |" >> $GITHUB_STEP_SUMMARY
-          echo "| release-version | ${{ steps.release.outputs.release_version }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| release-major-version | ${{ steps.release.outputs.release_major_version }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| release-tag | ${{ steps.release.outputs.release_tag }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| release_version | ${{ steps.release.outputs.release_version }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| release_major_version | ${{ steps.release.outputs.release_major_version }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| release_tag | ${{ steps.release.outputs.release_tag }} |" >> $GITHUB_STEP_SUMMARY
           echo  >> $GITHUB_STEP_SUMMARY
           echo "### Environment variables" >> $GITHUB_STEP_SUMMARY
           echo "| Name | Value |" >> $GITHUB_STEP_SUMMARY
