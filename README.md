@@ -31,11 +31,18 @@ This action creates release with change log, and if NPM_TOKEN is set it publishe
 
 ## Example usage
 
+To create just release tag
+
 ```yaml
 uses: rdeak/semantic-release-action@v1
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+```
+
+To create release tag and publish dist to NPM
+
+```yaml
+uses: rdeak/semantic-release-action@v1
+with:
+  npm_token: ${{ secrets.NPM_TOKEN }}
 ```
 
 ## License

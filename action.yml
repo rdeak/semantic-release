@@ -4,6 +4,14 @@ author: rdeak
 branding:
   icon: package
   color: blue
+inputs:
+  github_token:
+    description: "GitHub token"
+    required: true
+    default: ${{ github.token }}
+  npm_token:
+    description: "NPM token"
+    required: false
 outputs:
   new_release_created:
     description: "Flag if new release created (true/false)"
@@ -31,5 +39,5 @@ runs:
       shell: bash
       id: release-step
       env:
-        GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
-        NPM_TOKEN: ${{ env.NPM_TOKEN }}
+        GITHUB_TOKEN: ${{ inputs.github_token }}
+        NPM_TOKEN: ${{ inputs.npm_token }}
