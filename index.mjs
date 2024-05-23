@@ -1,17 +1,14 @@
 import core from "@actions/core";
 import semanticRelease from "semantic-release";
-import debug from 'debug';
-
-debug.enable('semantic-release:*')
 
 async function run() {
   try {
+    console.log(JSON.stringify(process.env, null, 2));
     const npmToken = process.env.NPM_TOKEN;
     const extendConfig = `@rdeak/semantic-release-config${npmToken ? "" : "/release-only"}`;
 
     const result = await semanticRelease({
       extends: extendConfig,
-      branches: ['main']
     });
 
     if (!result) {
