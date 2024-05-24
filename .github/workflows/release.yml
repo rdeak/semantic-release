@@ -16,6 +16,8 @@ jobs:
       - name: Create release
         uses: ./
         id: release-version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Tag major release
         if: ${{ steps.release-version.outputs.new_release_created }}
         shell: bash

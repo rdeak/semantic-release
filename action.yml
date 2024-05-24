@@ -4,40 +4,15 @@ author: rdeak
 branding:
   icon: package
   color: blue
-inputs:
-  github_token:
-    description: "GitHub token"
-    required: true
-    default: ${{ github.token }}
-  npm_token:
-    description: "NPM token"
-    required: false
 outputs:
   new_release_created:
     description: "Flag if new release created (true/false)"
-    value: ${{ steps.release-step.outputs.new_release_created }}
   release_version:
     description: "Latest released version eg. 1.0.1"
-    value: ${{ steps.release-step.outputs.release_version }}
   release_major_version:
     description: "Latest major version eg. 1"
-    value: ${{ steps.release-step.outputs.release_major_version }}
   release_tag:
     description: "Latest version tag eg. v1.0.1"
-    value: ${{ steps.release-step.outputs.release_tag }}
 runs:
-  using: "composite"
-  steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: 22
-        cache: npm
-    - run: npm ci
-      shell: bash
-    - run: node index.mjs
-      shell: bash
-      id: release-step
-      env:
-        GITHUB_TOKEN: ${{ inputs.github_token }}
-        NPM_TOKEN: ${{ inputs.npm_token }}
+  using: "docker"
+  image: "Dockerfile"
