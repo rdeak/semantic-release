@@ -8,6 +8,8 @@ on:
 jobs:
   Release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - name: Create release
@@ -21,6 +23,8 @@ jobs:
         run: |
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor }}@users.noreply.github.com"
+          git tag -d v1 2>/dev/null
+          git push --follow-tags
           git tag -a -m "v${{ steps.release-version.outputs.release_major_version }}" v${{ steps.release-version.outputs.release_major_version }}
           git push --follow-tags
       - name: Release summary
