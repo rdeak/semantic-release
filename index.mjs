@@ -1,21 +1,8 @@
 import core from "@actions/core";
 import semanticRelease from "semantic-release";
-import {spawnSync} from "node:child_process";
 
 async function run() {
     try {
-        const spawn = spawnSync('git', [
-            'config',
-            '--global',
-            '--add',
-            'safe.directory',
-            process.env.GITHUB_WORKSPACE,
-        ]);
-        if (spawn.status !== 0) {
-            core.setFailed(`Can't set safe dir: ${ spawn.stderr }`);
-            return;
-        }
-
         const npmToken = process.env.NPM_TOKEN;
         const extendConfig = `@rdeak/semantic-release-config${npmToken ? "" : "/release-only"}`;
 
