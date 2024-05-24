@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This action creates release with change log, and if NPM_TOKEN is set it publishes package to NPM.
+This action creates release with changelog, and if NPM_TOKEN is set it publishes package to NPM.
 
 ## Inputs
 
@@ -31,18 +31,41 @@ This action creates release with change log, and if NPM_TOKEN is set it publishe
 
 ## Example usage
 
-To create just release tag
-
 ```yaml
-uses: rdeak/semantic-release-action@v1
+name: Release
+on:
+  push:
+    branches:
+      - main
+jobs:
+  Release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # without it release and tag can't be created
+    steps:
+      uses: rdeak/semantic-release-action@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 To create release tag and publish dist to NPM
 
 ```yaml
-uses: rdeak/semantic-release-action@v1
-with:
-  npm_token: ${{ secrets.NPM_TOKEN }}
+name: Release
+on:
+  push:
+    branches:
+      - main
+jobs:
+  Release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # without it release and tag can't be created
+    steps:
+      uses: rdeak/semantic-release-action@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN 
 ```
 
 ## License
