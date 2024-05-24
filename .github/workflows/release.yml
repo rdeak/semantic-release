@@ -24,6 +24,7 @@ jobs:
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor }}@users.noreply.github.com"
           git tag -d "v${{ steps.release-version.outputs.release_major_version }}" || true
+          git push origin :refs/tags/v${{ steps.release-version.outputs.release_major_version }} || true
           git tag -a -m "v${{ steps.release-version.outputs.release_major_version }}" v${{ steps.release-version.outputs.release_major_version }}
           git push origin --tags
       - name: Release summary
