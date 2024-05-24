@@ -12,4 +12,4 @@ RUN npm ci
 
 COPY index.mjs .
 
-ENTRYPOINT ["node", "index.mjs"]
+ENTRYPOINT ["node", "/app/index.mjs"]
