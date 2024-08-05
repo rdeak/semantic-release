@@ -23,10 +23,8 @@ jobs:
         run: |
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor }}@users.noreply.github.com"
-          git tag -d "v${{ steps.release-version.outputs.release_major_version }}" 2>/dev/null || true
-          git push origin ":v${{ steps.release-version.outputs.release_major_version }}" 2>/dev/null || true
-          git tag -a -m "v${{ steps.release-version.outputs.release_major_version }}" v${{ steps.release-version.outputs.release_major_version }}
-          git push origin --tags
+          git tag -f "v${{ steps.release-version.outputs.release_major_version }}" 
+          git push --force origin "v${{ steps.release-version.outputs.release_major_version }}"
       - name: Release summary
         shell: bash
         run: |
